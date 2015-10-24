@@ -36,7 +36,6 @@ p = Parser()
 s = Splitter()
 s.load(filter(None, map(p.sb_word, io.open(sys.argv[1], 'r'))))
 
-k = 0
 for l in map(unicode.strip, io.open(sys.argv[2], 'r')):
     if len(l) != 0:
         for w in l.split(' '):
@@ -45,6 +44,3 @@ for l in map(unicode.strip, io.open(sys.argv[2], 'r')):
             splits = s.split(w)
             if splits:
                 print "%s (%s)" % (w, splits)
-                k += 1
-                if k > 100:
-                    exit(0)
